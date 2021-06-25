@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1M4YGgl_tRVuR7ucSw9yqqENOt9lN33_o
 """
 
-'''
+
 import os
 from google.colab import drive
 drive.mount('/content/drive/')
@@ -116,9 +116,3 @@ TotalPA = DesigPA + HeaderPA + FirstLocPA
 # save
 with open(basic_path + '/TotalPA', 'wb') as f:
     pickle.dump(TotalPA, f)
-    
-'''
-
-#load
-with open(basic_path + '/TotalPA', 'rb') as f:
-    TotalPA = pickle.load(f)
