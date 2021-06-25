@@ -11,20 +11,13 @@ import os
 from google.colab import drive
 drive.mount('/content/drive/')
 
-!pip install pydicom
 
 import os
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import pydicom as dicom
 import pickle
 
-from tensorflow import keras
-from tensorflow.keras import layers
-from skimage.transform import resize
-
-import cv2
 
 df = pd.read_csv('/content/drive/MyDrive/Endo-CXR/chestpa_BMD_20210414DXA.xls - Sheet1.csv')
 
@@ -41,7 +34,7 @@ with open(basic_path + '/TotalPA', 'rb') as f:
 x_train = []
 y_train = []
 
-px_size = 256
+px_size = 299 #to use inceptionV3
 
 for i in TotalPA:
     ds = dicom.dcmread(i)
@@ -58,8 +51,8 @@ x_train = np.array(x_train)
 y_train = np.array(y_train)
 
 
-with open(basic_path+'/x_train', 'rb') as f:
-    x_train = pickle.load(f)
+with open(basic_path+'/x_train_299.pickle', 'wb') as f:
+    pickle.dump(x_train, f)
 
-with open(basic_path+'/y_train', 'rb') as f:
-    y_train = pickle.load(f)
+with open(basic_path+'/y_target.pickle', 'wb') as f:
+    pickle.dump(y_train, f)
