@@ -2,13 +2,10 @@
 
 Chest X-ray file (DICOM)을 활용해 다양한 질병을 예측하는 AI 모델 구현을 하고 있습니다 
 
-for now, predicting osteoporosis with chest X-ray
+for now, predicting osteoporosis with chest X-ray using Colaboratory
 
-using Colaboratory
-
-1차 Data preprocessing level 
-
-> DICOM 파일의 pixel_array (metadata)를 불러와서 list에 append 하고 이를 통째로 사용하는 방법 사용
+1차 Data preprocessing level > 
+DICOM 파일의 pixel_array (metadata)를 불러와서 list에 append 하고 이를 통째로 사용하는 방법 사용
 
 그리고 PatientID를 활용하여 osteoporosis 진단 결과가 있는 csv의 파일의 index 활용하여 label data도 list append
 
